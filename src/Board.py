@@ -1,24 +1,27 @@
 import pyautogui
 import PIL
 
-Tiles = {
-  'GRAY':-1,
-  'EMPTY':0,
-  'i':1,
-  '2':2,
-  'r':3,
-  'l':4,
-  '5':5,
-  'b':6,
-  't':7
-}
+# Tiles = {
+#   'GRAY':-1,
+#   'EMPTY':0,
+#   'i':1,
+#   '2':2,
+#   'r':3,
+#   'l':4,
+#   '5':5,
+#   'b':6,
+#   't':7
+# }
+
+
 
 class Board():
   @staticmethod
   def getRefrence():
     return pyautogui.locateOnScreen('img/attle2.png')
 
-  def encodeColor(self,color):
+  @staticmethod
+  def encodeColor(color):
     #408-459 
     val = max(color)
     if val < 50:
@@ -40,7 +43,7 @@ class Board():
   def captureGameData(self,img=None):
     if img is None:
       img = self.screenGrab();
-    self.data = list(map(self.encodeColor,img.getdata()))
+    self.data = list(map(Board.encodeColor,img.getdata()))
 
 
   def __init__(self,refrence):
@@ -75,11 +78,15 @@ class Board():
     return img
 
   def clickStart(self):
+    #TODO: Refactor this method to use self.refrence
     button = pyautogui.locateOnScreen('img/start.png')
     pyautogui.moveTo(button.left,button.top)
     pyautogui.click()
 
-  
+  def getBoardState(self):
+    raise "Not Implemented"
+    pass
+    #return UNKNOWN, OPTIONS, MAP, HELP, TITLE, GAME. 
 
   # def listPiecesAtLocation(self,l):
   #   (
