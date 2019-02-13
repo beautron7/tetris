@@ -4,15 +4,19 @@ import PIL
 import time
 from Board import Board
 
-refrence = pyautogui.locateOnScreen('img/attle2.png')
+refrence = Board.getRefrence()
 board = Board(refrence)
 
 board.clickStart()
-for i in range(100):
-    time.sleep(1)
+for i in range(60):
+    time.sleep(2)
     board.captureGameData()
     board.printBoard()
 
 
 
 
+while True:
+  board.captureGameData()
+  for i in range(200):
+    pass
