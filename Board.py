@@ -47,15 +47,15 @@ class Board():
     self.refrence=refrence
     self.captureGameData()
     
-  def printBoard(self):
-    charset = ["!"," ","# "]
-    buf = "";
-    for i in range(200):
-      buf+= charset[self.data[i]+1]
-      if i%10 is 9:
-        print(buf+"|")
-        buf*=0
-    print("\n\n\n")
+  # def printBoard(self):
+  #   charset = ["!"," ","# "]
+  #   buf = "";
+  #   for i in range(200):
+  #     buf+= charset[self.data[i]+1]
+  #     if i%10 is 9:
+  #       print(buf+"|")
+  #       buf*=0
+  #   print("\n\n\n")
     
   def renderdata(self):
     pixels = []
@@ -116,52 +116,52 @@ class Board():
   #   return results
     
 
-  def fat_t_test(self,l):
-    isValid = self.data[l] is 0 and self.data[l-10] is 0
+  # def fat_t_test(self,l):
+  #   isValid = self.data[l] is 0 and self.data[l-10] is 0
     
-    a = self.data[l-22]
-    b = self.data[l-21]
-    c = self.data[l-19]
-    d = self.data[l-18]
+  #   a = self.data[l-22]
+  #   b = self.data[l-21]
+  #   c = self.data[l-19]
+  #   d = self.data[l-18]
 
-    e = self.data[l-12]
-    f = self.data[l-11]
-    g = self.data[l-9]
-    h = self.data[l-8]
+  #   e = self.data[l-12]
+  #   f = self.data[l-11]
+  #   g = self.data[l-9]
+  #   h = self.data[l-8]
 
-    i = self.data[l-2]
-    j = self.data[l-1]
-    k = self.data[l+1]
-    l = self.data[l+2]
+  #   i = self.data[l-2]
+  #   j = self.data[l-1]
+  #   k = self.data[l+1]
+  #   l = self.data[l+2]
 
-    lp = l%10
-    lr = int(l/10)
-    if lr < 2:
-      a=1
-      b=1
-      c=1
-      d=1
-      if lr < 1:
-        isValid = False
-    if lr > 18:
-      isValid = False
+  #   lp = l%10
+  #   lr = int(l/10)
+  #   if lr < 2:
+  #     a=1
+  #     b=1
+  #     c=1
+  #     d=1
+  #     if lr < 1:
+  #       isValid = False
+  #   if lr > 18:
+  #     isValid = False
 
 
-    if lp < 2:
-      a=1
-      e=1
-      h=1
-      if lp < 1:
-        b=1
-        f=1
-        i=1
-    elif lp > 8:
-      d = 1
-      g = 1
-      k = 1
-      if lp > 9:
-        c = 1
-        f = 1
-        j = 1
-    x=self.data[l-20]
-    return (isValid,x,a,b,c,d,e,f,g,h,i,j,k,l)
+  #   if lp < 2:
+  #     a=1
+  #     e=1
+  #     h=1
+  #     if lp < 1:
+  #       b=1
+  #       f=1
+  #       i=1
+  #   elif lp > 8:
+  #     d = 1
+  #     g = 1
+  #     k = 1
+  #     if lp > 9:
+  #       c = 1
+  #       f = 1
+  #       j = 1
+  #   x=self.data[l-20]
+  #   return (isValid,x,a,b,c,d,e,f,g,h,i,j,k,l)
