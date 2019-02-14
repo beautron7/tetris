@@ -13,15 +13,7 @@ running = True
 
 while running:
   time.sleep(1)
-  #TODO: Move this coude to the tick fcn
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
       running = False
-    #TODO: Move this code out of tick() and onto a pyautogui.
-    elif event.type == pygame.KEYDOWN:
-      keys = pygame.key.get_pressed()
-      if keys[pygame.K_x]:
-        updateModel=True
-
-  
   Tick(screen,board)
