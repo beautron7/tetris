@@ -1,22 +1,18 @@
-import pygame
 import PIL
-from Board import Board as Board
-from TickCode import Tick 
+import pygame
+import time
 
+from Board import Board as Board
+from pygametestMethods import Tick, initPYGM
 
 refrence = Board.getRefrence()
 board = Board(refrence)
-
-#init window
-(width, height) = (1000, 500)
-screen = pygame.display.set_mode((width, height))
-pygame.display.flip()
-pygame.display.set_caption('Monitor Window')
-
+screen = initPYGM()
 
 running = True
 
 while running:
+  time.sleep(1)
   #TODO: Move this coude to the tick fcn
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
@@ -29,5 +25,3 @@ while running:
 
   
   Tick(screen,board)
-  
-

@@ -1,5 +1,6 @@
 import pyautogui
 import PIL
+from pyscreeze import ImageNotFoundException 
 
 # Tiles = {
 #   'GRAY':-1,
@@ -17,9 +18,16 @@ import PIL
 
 class Board():
   @staticmethod
-  def getRefrence():
-    return pyautogui.locateOnScreen('img/attle2.png')
-
+  def getRefrence(path = 'img/attle2.png'):
+    try:
+      return pyautogui.locateOnScreen(path)
+    except FileNotFoundError:
+      print("Could not find refrence image on disk at `img/attle2.png`\nAborting")
+      quit()
+    except ImageNotFoundException:
+      print("Can't find attle2 logo on the screen. is the game visible and have you replaced 'img/attle2.png' with a proper screenshot?")
+      quit()
+   
   @staticmethod
   def encodeColor(color):
     #408-459 

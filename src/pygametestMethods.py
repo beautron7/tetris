@@ -24,3 +24,9 @@ def Tick(screen,board):
 
   pygame.display.update();
 
+def initPYGM():
+  (width, height) = (1000, 500)
+  screen = pygame.display.set_mode((width, height))
+  pygame.display.flip()
+  pygame.display.set_caption('Monitor Window')
+  return screen
