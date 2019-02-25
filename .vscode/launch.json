@@ -8,7 +8,7 @@
       "name": "PYGMtest IntegreatedTerminal",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}/src/pygametest.py",
+      "program": "${workspaceFolder}/src/GUI.py",
       "console": "integratedTerminal",
       "debugStdLib": true
     }

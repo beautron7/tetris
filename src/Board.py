@@ -2,23 +2,9 @@ import pyautogui
 import PIL
 from pyscreeze import ImageNotFoundException 
 
-# Tiles = {
-#   'GRAY':-1,
-#   'EMPTY':0,
-#   'i':1,
-#   '2':2,
-#   'r':3,
-#   'l':4,
-#   '5':5,
-#   'b':6,
-#   't':7
-# }
-
-
-
 class Board():
   @staticmethod
-  def getRefrence(path = 'img/attle2.png'):
+  def getReference(path = 'img/attle2.png'):
     try:
       return pyautogui.locateOnScreen(path)
     except FileNotFoundError:
@@ -58,19 +44,9 @@ class Board():
     self.refrence=refrence
     self.captureGameData()
     
-  # def printBoard(self):
-  #   charset = ["!"," ","# "]
-  #   buf = "";
-  #   for i in range(200):
-  #     buf+= charset[self.data[i]+1]
-  #     if i%10 is 9:
-  #       print(buf+"|")
-  #       buf*=0
-  #   print("\n\n\n")
-    
   def renderdata(self):
     pixels = []
-    img = PIL.Image.new('RGB',(10,20),"black");
+    img = PIL.Image.new('RGB',(10,20),'black');
     pixels = img.load()
 
     for i in range(200):
@@ -95,6 +71,16 @@ class Board():
     raise "Not Implemented"
     pass
     #return UNKNOWN, OPTIONS, MAP, HELP, TITLE, GAME. 
+
+  # def printBoard(self):
+  #   charset = ["!"," ","# "]
+  #   buf = "";
+  #   for i in range(200):
+  #     buf+= charset[self.data[i]+1]
+  #     if i%10 is 9:
+  #       print(buf+"|")
+  #       buf*=0
+  #   print("\n\n\n")
 
   # def listPiecesAtLocation(self,l):
   #   (

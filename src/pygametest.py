@@ -2,7 +2,7 @@ import PIL
 import pygame
 import time
 
-from Board import Board as Board
+from Board import Board
 from pygametestMethods import Tick, initPYGM
 
 refrence = Board.getRefrence()
